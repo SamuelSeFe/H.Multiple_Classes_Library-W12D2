@@ -9,6 +9,7 @@ public class LibraryTest {
     Book book1;
     Book book2;
     Book book3;
+    Book book4;
 
     @Before
     public void setUp(){
@@ -16,6 +17,7 @@ public class LibraryTest {
         book1 = new Book("Fellowship of the Ring", "J.R.R.Tolkien", "Fantasy");
         book2 = new Book("1984", "George Orwell", "Science Fiction");
         book3 = new Book("The Two Towers", "J.R.R.Tolkien", "Fantasy");
+        book4 = new Book("The Return of the King", "J.R.R.Tolkien", "Fantasy");
 
         myLibrary.addBookIfStockIsNotFull(book2);
     }
@@ -37,8 +39,8 @@ public class LibraryTest {
     public void canGetNumOfBooksByGenre() {
         myLibrary.addBookIfStockIsNotFull(book1);
         myLibrary.addBookIfStockIsNotFull(book3);
-        assertEquals(2, myLibrary.getCountByGenre("Fantasy"));
+        myLibrary.addBookIfStockIsNotFull(book4);
+        assertEquals(3, myLibrary.getCountByGenre("Fantasy"));
     }
-
 
 }
