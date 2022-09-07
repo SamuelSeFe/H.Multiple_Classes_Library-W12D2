@@ -5,12 +5,12 @@ public class Library {
 
     private ArrayList<Book> booksList;
     private int capacity;
-    private HashMap<String, Integer> genreTracking = new HashMap<>();
+    private HashMap<String, Integer> genreTracking;
 
     public Library(int capacity){
-        this.booksList = new ArrayList<Book>();
+        this.booksList = new ArrayList<>();
         this.capacity = capacity;
-        this.genreTracking = genreTracking;
+        this.genreTracking = new HashMap<>();
     }
 
     public void addBookIfStockIsNotFull(Book book) {
@@ -41,6 +41,13 @@ public class Library {
     public int getCountByGenre(String key){
         return this.genreTracking.get(key);
     }
+
+//    private void addToGenreHashmap(Book book){
+//        for (Book b: booksList) {
+//            genreTracking.putIfAbsent(b.getGenre(), 0);
+//            genreTracking.put(b.getGenre(), genreTracking.get(b.getGenre())+1);
+//        }
+//    } --> Nathaniel's solution using .putIfAbsent (CHECK IT OUT)
 
 
 }
